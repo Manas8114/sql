@@ -6,23 +6,26 @@ SQL practice repository — queries, schema designs, and database exercises for 
 
 | File | Description |
 |------|-------------|
-| `*.sql` | SQL scripts: DDL (CREATE), DML (INSERT/UPDATE), DQL (SELECT/JOINs) |
-| `schema/` | Database schema diagrams (ERD, normalization) |
-| `exercises/` | Practice problems with solutions |
-| `datasets/` | Sample data (CSV/SQL dump) for practice |
+| `schema/` | DDL scripts (CREATE TABLE, indexes, constraints) |
+| `queries/` | DML/DQL exercises (SELECT, JOIN, subqueries, window functions) |
+| `procedures/` | Stored procedures, functions, triggers |
+| `datasets/` | Sample data (CSV/SQL inserts) for practice |
+| `normalization/` | 1NF→3NF/BCNF exercises with solutions |
 
 ## Topics Covered
 
-- **DDL**: CREATE TABLE, ALTER, DROP, constraints (PK, FK, UNIQUE, CHECK)
-- **DML**: INSERT, UPDATE, DELETE, MERGE
-- **DQL**: SELECT, WHERE, ORDER BY, GROUP BY, HAVING
-- **Joins**: INNER, LEFT, RIGHT, FULL, CROSS, SELF
-- **Subqueries**: Correlated, non-correlated, EXISTS, IN
-- **Window Functions**: ROW_NUMBER, RANK, LAG/LEAD, aggregates
-- **CTEs**: Recursive, multiple, materialized
-- **Transactions**: BEGIN, COMMIT, ROLLBACK, isolation levels
-- **Indexing**: B-tree, hash, partial, covering
-- **Normalization**: 1NF–3NF, BCNF, denormalization tradeoffs
+| Category | Examples |
+|----------|----------|
+| **DDL** | CREATE, ALTER, DROP, constraints (PK, FK, UNIQUE, CHECK) |
+| **DML** | INSERT, UPDATE, DELETE, MERGE |
+| **DQL** | SELECT, WHERE, ORDER BY, GROUP BY, HAVING |
+| **Joins** | INNER, LEFT, RIGHT, FULL, CROSS, SELF |
+| **Subqueries** | Correlated, non-correlated, EXISTS, IN, ANY/ALL |
+| **Window Functions** | ROW_NUMBER, RANK, LAG/LEAD, NTILE, aggregates |
+| **CTEs** | Recursive, multiple, materialized |
+| **Transactions** | BEGIN, COMMIT, ROLLBACK, isolation levels |
+| **Indexing** | B-tree, hash, partial, covering, statistics |
+| **Performance** | EXPLAIN ANALYZE, query tuning |
 
 ## Databases
 
@@ -35,15 +38,14 @@ SQL practice repository — queries, schema designs, and database exercises for 
 
 ```bash
 # PostgreSQL
-psql -d mydb -f schema.sql
-psql -d mydb -f seed.sql
-psql -d mydb -f queries.sql
+psql -d practice_db -f schema/create_tables.sql
+psql -d practice_db -f datasets/seed.sql
 
 # MySQL
-mysql -u root -p mydb < schema.sql
+mysql -u root -p practice_db < schema/create_tables.sql
 
 # SQLite
-sqlite3 practice.db < schema.sql
+sqlite3 practice.db < schema/create_tables.sql
 ```
 
 ## Resources
